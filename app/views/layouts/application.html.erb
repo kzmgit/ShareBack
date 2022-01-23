@@ -18,6 +18,14 @@
         </div>
       <% end %>
     </div>
+
+    <% if logged_in? %>
+      <%= link_to "ログアウト", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "新規登録", sign_up_path %>
+      <%= link_to "ログイン", login_path %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

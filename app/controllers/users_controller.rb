@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     # debugger
     if @user.save
       flash[:success] = "Welcome to the ShareBack!"
+      log_in(@user)
       redirect_to user_path(@user)
     else
       render :new
