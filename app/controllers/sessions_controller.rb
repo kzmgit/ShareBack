@@ -4,12 +4,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email])
+    # ユーザーが存在する && パスワード入力が正しい
     if user && user.authenticate(params[:session][:password])
       flash[:success] = "ログインしました！"
       log_in(user)
       redirect_to root_path
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'メールとパスワードの組み合わせが無効です。'
       render :new
     end
   end
