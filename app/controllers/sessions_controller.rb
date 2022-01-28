@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       flash[:success] = "ログインしました！"
       log_in(user)
-      redirect_to user_path(user)
+      redirect_to root_path
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render :new
@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
+    flash[:success] = "ログアウトしました！"
     redirect_to root_path
   end
 end

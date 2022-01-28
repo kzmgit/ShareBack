@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
+
     <div>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>">
@@ -18,13 +20,6 @@
         </div>
       <% end %>
     </div>
-
-    <% if logged_in? %>
-      <%= link_to "ログアウト", logout_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", sign_up_path %>
-      <%= link_to "ログイン", login_path %>
-    <% end %>
 
     <%= yield %>
   </body>
