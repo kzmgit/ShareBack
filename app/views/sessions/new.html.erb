@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+    <h3 class="my-5">ログイン</h3>
+    
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+      <%= f.label :emai, class: "form-label" %>
+      <%= f.email_field :email, class: 'form-control mb-3' %>
+
+      <%= f.label :password, class: "form-label" %>
+      <%= f.password_field :password, class: 'form-control mb-3' %>
+
+      <%= f.submit "ログイン", class: "btn btn-primary mb-3" %>
+    <% end %>
+    
+    <p>New User? <%= link_to "新規登録", sign_up_path %></p>
+    </div>
+  </div>
+</div>
