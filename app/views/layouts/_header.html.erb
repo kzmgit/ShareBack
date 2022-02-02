@@ -1,7 +1,8 @@
 <% if logged_in? %>
-    <%= link_to "ログアウト", logout_path, method: :delete %>
+    <%= link_to "Home", root_path %>
     <%= link_to "マイページ", user_path(current_user) %>
     <%= link_to "ユーザー一覧", users_path %>
+    <%= link_to "ログアウト", logout_path, method: :delete %>
     <p>ログインしているユーザー: <%= current_user.name %></p>
 <% else %>
     <%= link_to "新規登録", sign_up_path %>
