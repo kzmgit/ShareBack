@@ -65,6 +65,7 @@ class UsersController < ApplicationController
       end
     end
 
+    # @userがカレントユーザーであればtrueを返す
     def correct_user
       @user = User.find(params[:id])
       unless current_user?(@user)

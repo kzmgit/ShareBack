@@ -5,5 +5,4 @@
 
 <% if current_user?(@product.user) %>
   <p><%= link_to '編集する', edit_product_path(@product), class: "btn btn-primary" %></p>
-  <p><%= link_to '削除する', product_path(@product), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></p>
 <% end %>
