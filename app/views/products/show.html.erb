@@ -1,5 +1,6 @@
 <h1>成果物詳細ページ</h1>
 
+<h3>投稿者: <%= link_to @product.user.name, user_path(@product.user) %></h3>
 <h3>タイトル: <%= @product.title %></h3>
 <h3>内容: <%= @product.body %></h3>
 

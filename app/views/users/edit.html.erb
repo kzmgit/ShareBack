@@ -4,7 +4,7 @@
     <div class="col-md-6 offset-3">
       <h3>ユーザー情報編集</h3>
       <%= form_with model: @user, local: true do |f| %>
-        <%= render 'shared/error_messages' %>
+        <%= render 'shared/error_messages', object: @user %>
 
         <%= f.label :name, class: "form-label" %>
         <%= f.text_field :name, class: "form-control mb-3" %>
@@ -20,6 +20,8 @@
 
         <%= f.submit '編集内容を保存', class: "btn btn-primary mb-3" %>
       <% end %>
+
+      <p><%= link_to 'アカウントを削除する', user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></p>
     </div>
   </div>
 </div>
