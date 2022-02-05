@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <h3>成果物編集</h3>
+      <%= form_with model: @product, local: true do |f| %>
+        <%= render 'shared/error_messages', object: @product %>
+
+        <%= f.label :title, class: "form-label" %>
+        <%= f.text_field :title, class: "form-control mb-3" %>
+
+        <%= f.label :body, class: "form-label" %>
+        <%= f.text_area :body, class: "form-control mb-3" %>
+
+        <%= f.submit '変更内容を保存する', class: "btn btn-primary mb-3" %>
+
+      <% end %>
+      <p><%= link_to '成果物を削除する', product_path(@product), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></p>
+
+    </div>
+  </div>
+</div>
