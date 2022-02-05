@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       log_in(user)
       redirect_to root_path
     else
-      flash.now[:error] = 'メールとパスワードの組み合わせが無効です。'
+      flash.now[:error] = 'メールアドレスとパスワードの組み合わせが正しくありません。'
       render :new
     end
   end

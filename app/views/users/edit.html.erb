@@ -1,27 +1,42 @@
-<div class="container">
+<div class="ui container">
+  <h2>ユーザー情報編集</h2>
 
-  <div class="row">
-    <div class="col-md-6 offset-3">
-      <h3>ユーザー情報編集</h3>
+  <div class="ui large form error">
       <%= form_with model: @user, local: true do |f| %>
         <%= render 'shared/error_messages', object: @user %>
 
-        <%= f.label :name, class: "form-label" %>
-        <%= f.text_field :name, class: "form-control mb-3" %>
+        <div class="field">
+          <label>名前</label>
+          <%= f.text_field :name %>
+        </div>
 
-        <%= f.label :email, class: "form-label" %>
-        <%= f.email_field :email, class: "form-control mb-3" %>
+        <div class="field">
+          <label>メールアドレス</label>
+          <%= f.email_field :email %>
+        </div>
 
-        <%= f.label :password, class: "form-label" %>
-        <%= f.password_field :password, class: "form-control mb-3" %>
+        <div class="field">
+          <label>パスワード</label>
+          <%= f.password_field :password %>
+        </div>
 
-        <%= f.label :password_confirmation, class: "form-label" %>
-        <%= f.password_field :password_confirmation, class: "form-control mb-3" %>
+        <div class="field">
+          <label>パスワード再入力</label>
+          <%= f.password_field :password_confirmation %>
+        </div>
 
-        <%= f.submit '編集内容を保存', class: "btn btn-primary mb-3" %>
+        <div class="ui left icon input">
+          <i class="save icon"></i>
+          <%= f.submit '編集内容を保存', class: "ui green button" %>
+        </div>
       <% end %>
+  </div>
 
-      <p><%= link_to 'アカウントを削除する', user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></p>
-    </div>
+  <div class="ui hidden divider">
+    <%= link_to user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "ui red button" do %>
+      <i class="trash icon"></i>
+      アカウントを削除する
+    <% end %>
   </div>
 </div>
+

@@ -2,10 +2,10 @@
   <h1>ユーザー詳細ページ</h1>
 
   <h3>名前: <%= @user.name %></h3>
-  <h3>メール: <%= @user.email %></h3>
+  <h3>メールアドレス: <%= @user.email %></h3>
 
   <% if current_user?(@user) %>
-    <p><%= link_to 'ユーザー情報を編集する', edit_user_path(@user), class: "ui olive button" %></p>
+    <p><%= link_to 'ユーザー情報を編集する', edit_user_path(@user), class: "ui primary button" %></p>
   <% end %>
 
   <h2>ユーザー成果物</h2>

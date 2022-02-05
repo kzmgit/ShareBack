@@ -1,10 +1,12 @@
 <div class="ui container">
   <h2>成果物一覧</h2>
 
-  <button class="ui primary basic button">
-    <i class="plus square outline icon"></i>
-    <%= link_to "新規投稿", new_product_path %>
-  </button>
+    <%= link_to new_product_path do %>
+      <button class="ui primary basic button">
+        <i class="plus square icon"></i>
+        新規投稿
+      </button>
+    <% end %>
 
   <table class="ui celled table">
     <thead>

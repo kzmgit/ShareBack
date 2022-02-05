@@ -6,30 +6,34 @@
         <%= render 'shared/error_messages', object: @user %>
 
         <div class="field">
+          <label>名前</label>
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <%= f.text_field :name, placeholder: "UserName" %>
+            <%= f.text_field :name, placeholder: "例：サンプル太郎" %>
           </div>
         </div>
 
         <div class="field">
+          <label>メールアドレス</label>
           <div class="ui left icon input">
             <i class="envelope icon"></i>
-            <%= f.email_field :email, placeholder: "E-mail address" %>
+            <%= f.email_field :email, placeholder: "例：example@gmail.com" %>
             </div>
         </div>
 
         <div class="field">
+          <label>パスワード</label>
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <%= f.password_field :password, placeholder: "Password" %>
+            <%= f.password_field :password, placeholder: "例：●●●●●●(6文字以上)" %>
           </div>
         </div>
 
         <div class="field">
+          <label>パスワード再入力</label>
           <div class="ui left icon input">
-            <i class="eye slash icon"></i>
-            <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+            <i class="lock icon"></i>
+            <%= f.password_field :password_confirmation, placeholder: "例：●●●●●●(6文字以上)" %>
             </div>
         </div>
 
