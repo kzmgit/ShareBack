@@ -1,26 +1,21 @@
-<div class="container">
-
-  <div class="row">
-    <div class="col-md-6 offset-3">
-      <h3>ユーザー一覧</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>名前</th>
-            <th>メールアドレス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-          <tr>
-            <td><%= user.id %></td>
-            <td><%= link_to user.name, user_path(user) %></td>
-            <td><%= user.email %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="ui container">
+  <h2>ユーザー一覧</h2>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>メールアドレス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td data-label="ID"><%= user.id %></td>
+        <td data-label="名前"><%= link_to user.name, user_path(user) %></td>
+        <td data-label="メールアドレス"><%= user.email %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>

@@ -1,24 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-3">
-      <h3>成果物一覧</h1>
-      <%= link_to "新規投稿", new_product_path %>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>投稿者</th>
-            <th>タイトル</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @products.each do |product| %>
-          <tr>
-            <td><%= product.user.name %></td>
-            <td><%= link_to product.title, product_path(product) %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="ui container">
+  <h2>成果物一覧</h2>
+
+  <button class="ui primary basic button">
+    <i class="plus square outline icon"></i>
+    <%= link_to "新規投稿", new_product_path %>
+  </button>
+
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>投稿者</th>
+        <th>タイトル</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td data-label="投稿者"><%= product.user.name %></td>
+        <td data-label="タイトル"><%= link_to product.title, product_path(product) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
