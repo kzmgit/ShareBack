@@ -1,19 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-3">
-    <h3 class="my-5">ログイン</h3>
-    
-    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-      <%= f.label :emai, class: "form-label" %>
-      <%= f.email_field :email, class: 'form-control mb-3' %>
+<div class="ui container">
+  <h2>ログイン</h2>
+  <div class="ui large form">
+    <div class="ui stacked segment">
+      <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
-      <%= f.label :password, class: "form-label" %>
-      <%= f.password_field :password, class: 'form-control mb-3' %>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="envelope icon"></i>
+          <%= f.email_field :email, placeholder: "メールアドレス" %>
+        </div>
+      </div>
 
-      <%= f.submit "ログイン", class: "btn btn-primary mb-3" %>
-    <% end %>
-    
-    <p>New User? <%= link_to "新規登録", sign_up_path %></p>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password, placeholder: "パスワード" %>
+        </div>
+      </div>
+
+        <%= f.submit "ログイン", class: "ui fluid large teal button" %>
+      <% end %>
     </div>
   </div>
+    <div class="ui message">
+      <p>New User? <%= link_to "新規登録", sign_up_path %></p>
+    </div>
 </div>

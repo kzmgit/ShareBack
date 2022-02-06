@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     # ログイン済みユーザーかどうか確認
     def logged_in_user
       unless logged_in?
-        flash[:danger] = "ログインしてください"
+        flash[:error] = "ログインしてください"
         redirect_to login_path
       end
     end
