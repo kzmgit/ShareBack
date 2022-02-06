@@ -6,6 +6,11 @@
         <%= render 'shared/error_messages', object: @user %>
 
         <div class="field">
+          <label>画像</label>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+
+        <div class="field">
           <label>名前</label>
           <%= f.text_field :name %>
         </div>

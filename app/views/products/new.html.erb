@@ -4,11 +4,11 @@
     <%= form_with model: @product, local: true do |f| %>
       <%= render 'shared/error_messages', object: @product %>
       <div class="field">
-        <%= f.label :title %>
+        <label>タイトル</label>
         <%= f.text_field :title %>
       </div>
       <div class="field">
-        <%= f.label :body %>
+        <label>内容</label>
         <%= f.text_area :body %>
       </div>
       <%= f.submit '新規登録', class: "ui blue button" %>
