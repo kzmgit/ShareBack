@@ -1,12 +1,32 @@
 <div class="ui container">
   <h2>成果物詳細ページ</h2>
 
-  <h3>投稿者: <%= link_to @product.user.name, user_path(@product.user) %></h3>
-  <h3>タイトル: <%= @product.title %></h3>
-  <h3>内容: <%= @product.body %></h3>
+  <div class="ui items">
+    <div class="item">
+      <% if @product.user.image.attached? %>
+        <%= link_to user_path(@product.user), class: "ui tiny image" do %>
+          <%= image_tag @product.user.image %>
+        <% end %>
+      <% else %>
+        <%= link_to user_path(@product.user), class: "ui tiny image" do %>
+          <%= image_tag 'no_image' %>
+        <% end %>
+      <% end %>
+
+      <div class="middle aligned content">
+        <%= link_to @product.user.name, user_path(@product.user) %>
+        <div class="description">
+          <p>投稿日: <%= l @product.created_at %></p>
+          <p>更新日: <%= l @product.updated_at %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3><%= @product.title %></h3>
+  <p><%= @product.body %></p>
 
   <% if current_user?(@product.user) %>
-    <p><%= link_to '編集する', edit_product_path(@product), class: "btn btn-primary" %></p>
+    <p><%= link_to '編集する', edit_product_path(@product), class: "ui button" %></p>
   <% end %>
-
 </div>
