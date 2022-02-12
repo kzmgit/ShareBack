@@ -9,7 +9,7 @@
         <% end %>
       <% else %>
         <%= link_to user_path(@product.user), class: "ui tiny image" do %>
-          <%= image_tag 'no_image' %>
+          <%= image_tag 'no_user_image' %>
         <% end %>
       <% end %>
 
@@ -23,6 +23,11 @@
     </div>
   </div>
 
+  <% if @product.image.attached? %>
+    <%= image_tag @product.image, size: "1000x600" %>
+  <% else %>
+    <%= image_tag 'no_app_image', size: "1000x600" %>
+  <% end %>
   <h3><%= @product.title %></h3>
   <p><%= @product.overview %></p>
   <p><%= @product.body %></p>

@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:user_id, :title, :body)
+      params.require(:product).permit(:user_id, :title, :overview ,:body, :features, :technology, :image)
     end
 
     # beforeアクション

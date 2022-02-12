@@ -4,6 +4,10 @@
     <%= form_with model: @product, local: true do |f| %>
       <%= render 'shared/error_messages', object: @product %>
       <div class="field">
+        <label>画像</label>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="field">
         <%= f.label :title %>
         <%= f.text_field :title %>
       </div>
