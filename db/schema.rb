@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_02_08_083224) do
   create_table "products", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
+    t.string "url", null: false
     t.string "overview", null: false
     t.text "body", null: false
     t.text "features", null: false

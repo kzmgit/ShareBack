@@ -5,7 +5,8 @@ ja:
       user: ユーザー
     attributes:
       product:
-        title: タイトル
+        title: アプリ名
+        url: URL
         overview: 概要
         body: 内容
         features: 機能一覧

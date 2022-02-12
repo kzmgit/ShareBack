@@ -5,6 +5,7 @@ class Product < ApplicationRecord
 
   with_options presence: true do
   validates :title
+  validates :url
   validates :overview
   validates :body
   validates :features

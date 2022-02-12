@@ -19,6 +19,7 @@ end
   Product.create!(
     user_id: n+1,
     title: "ShareBack#{n+1}",
+    url: "https://www.google.com/",
     overview: "自身の成果物のフィードバックがもらえるサービスです",
     body: "説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります。",
     features: "機能一覧が入ります。",

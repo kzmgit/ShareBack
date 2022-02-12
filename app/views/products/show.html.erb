@@ -28,7 +28,9 @@
   <% else %>
     <%= image_tag 'no_app_image', size: "1000x600" %>
   <% end %>
+
   <h3><%= @product.title %></h3>
+  <p><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></p>
   <p><%= @product.overview %></p>
   <p><%= @product.body %></p>
   <p><%= @product.features %></p>
