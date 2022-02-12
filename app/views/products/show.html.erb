@@ -24,7 +24,10 @@
   </div>
 
   <h3><%= @product.title %></h3>
+  <p><%= @product.overview %></p>
   <p><%= @product.body %></p>
+  <p><%= @product.features %></p>
+  <p><%= @product.technology %></p>
 
   <% if current_user?(@product.user) %>
     <p><%= link_to '編集する', edit_product_path(@product), class: "ui button" %></p>
