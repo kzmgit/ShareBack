@@ -1,13 +1,27 @@
-<div class="ui stackable menu">
+<div class="ui menu">
+ <!--ログインしていたら-->
 <% if logged_in? %>
-    <%= link_to "Home", root_path, class: "item" %>
-    <%= link_to "マイページ", user_path(current_user), class: "item" %>
-    <%= link_to "ユーザー一覧", users_path, class: "item" %>
+    <%= link_to "ShareBack", root_path, class: "item" %>
     <%= link_to "成果物一覧", products_path, class: "item" %>
-    <%= link_to "ログアウト", logout_path, method: :delete, class: "item" %>
-    <p>ログインしているユーザー: <%= current_user.name %></p>
+    <%= link_to "ユーザー一覧", users_path, class: "item" %>
+    <div class="right menu">
+        <%= link_to "マイページ", user_path(current_user), class: "item" %>
+        <div class="item">
+            <%= link_to "ログアウト", logout_path, method: :delete, class: "ui button" %>
+        </div>
+    </div>
 <% else %>
-    <%= link_to "新規登録", sign_up_path, class: "item" %>
-    <%= link_to "ログイン", login_path, class: "item" %>
+    <%= link_to "ShareBack", root_path, class: "item" %>
+    <%= link_to "ShareBackとは？", about_path, class: "item" %>
+    <%= link_to "成果物一覧", products_path, class: "item" %>
+    <%= link_to "ユーザー一覧", users_path, class: "item" %>
+    <div class="right menu">
+        <div class="item">
+            <%= link_to "新規登録", sign_up_path, class: "ui button primary" %>
+        </div>
+        <div class="item">
+            <%= link_to "ログイン", login_path, class: "ui button" %>
+        </div>
+    </div>
 <% end %>
 </div>
