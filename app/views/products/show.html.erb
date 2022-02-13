@@ -23,11 +23,13 @@
     </div>
   </div>
 
-  <% if @product.image.attached? %>
-    <%= image_tag @product.image, size: "1000x600" %>
-  <% else %>
-    <%= image_tag 'no_app_image', size: "1000x600" %>
-  <% end %>
+  <div class="ui center aligned grid">
+    <% if @product.image.attached? %>
+      <%= image_tag @product.image, class: "thirteen wide column" %>
+    <% else %>
+      <%= image_tag 'no_app_image', class: "thirteen wide column" %>
+    <% end %>
+  </div>
 
   <h3><%= @product.title %></h3>
   <p><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></p>
