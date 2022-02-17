@@ -9,7 +9,7 @@
         <% end %>
       <% else %>
         <%= link_to user_path(@product.user), class: "ui tiny image" do %>
-          <%= image_tag 'no_image' %>
+          <%= image_tag 'no_user_image' %>
         <% end %>
       <% end %>
 
@@ -23,8 +23,20 @@
     </div>
   </div>
 
+  <div class="ui center aligned grid">
+    <% if @product.image.attached? %>
+      <%= image_tag @product.image, class: "thirteen wide column" %>
+    <% else %>
+      <%= image_tag 'no_app_image', class: "thirteen wide column" %>
+    <% end %>
+  </div>
+
   <h3><%= @product.title %></h3>
+  <p><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></p>
+  <p><%= @product.overview %></p>
   <p><%= @product.body %></p>
+  <p><%= @product.features %></p>
+  <p><%= @product.technology %></p>
 
   <% if current_user?(@product.user) %>
     <p><%= link_to '編集する', edit_product_path(@product), class: "ui button" %></p>

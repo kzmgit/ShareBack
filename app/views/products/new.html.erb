@@ -4,12 +4,32 @@
     <%= form_with model: @product, local: true do |f| %>
       <%= render 'shared/error_messages', object: @product %>
       <div class="field">
-        <label>タイトル</label>
+        <label>画像</label>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="field">
+        <%= f.label :title %>
         <%= f.text_field :title %>
       </div>
       <div class="field">
-        <label>内容</label>
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+      </div>
+      <div class="field">
+        <%= f.label :overview %>
+        <%= f.text_field :overview %>
+      </div>
+      <div class="field">
+        <%= f.label :body %>
         <%= f.text_area :body %>
+      </div>
+      <div class="field">
+        <%= f.label :features %>
+        <%= f.text_area :features %>
+      </div>
+      <div class="field">
+        <%= f.label :technology %>
+        <%= f.text_area :technology %>
       </div>
       <%= f.submit '新規登録', class: "ui blue button" %>
     <% end %>

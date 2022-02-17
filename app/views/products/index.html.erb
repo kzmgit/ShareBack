@@ -1,27 +1,44 @@
 <div class="ui container">
   <h2>成果物一覧</h2>
 
-    <%= link_to new_product_path do %>
-      <button class="ui primary basic button">
-        <i class="plus square icon"></i>
-        新規投稿
-      </button>
-    <% end %>
+    <div class="ui stackable grid">
+      <div class="four column row">
+        <div class="right floated column">
+          <%= link_to new_product_path do %>
+            <button class="ui primary basic button">
+              <i class="plus square icon"></i>
+              新規投稿
+            </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-  <table class="ui celled table">
-    <thead>
-      <tr>
-        <th>投稿者</th>
-        <th>タイトル</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-      <tr>
-        <td data-label="投稿者"><%= product.user.name %></td>
-        <td data-label="タイトル"><%= link_to product.title, product_path(product) %></td>
-      </tr>
+  <div class="ui three column grid">
+    <% @products.each do |product| %>
+    <div class="column">
+      <div class="ui fluid card">
+        <div class="image">
+          <%= link_to product_path(product) do %>
+              <%= image_tag product.get_image(350,350) %>
+          <% end %>
+        </div>
+        <div class="content">
+          <div class="header"><%= link_to product.title, product_path(product) %></div>
+          <div class="meta"><%= link_to product.user.name, user_path(product.user) %></div>
+          <div class="description"><%= product.overview %></div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">Joined in 2013</span>
+          <span>
+            <i class="user icon"></i>
+            75 Friends
+          </span>
+        </div>
+      </div>
+
+    </div>
     <% end %>
-    </tbody>
-  </table>
+  </div>
+
 </div>
