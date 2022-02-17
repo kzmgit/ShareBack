@@ -14,30 +14,29 @@
       </div>
     </div>
 
-  <div class="ui link cards">
+  <div class="ui three column grid">
     <% @products.each do |product| %>
-    <div class="card">
-      <div class="ui midium image">
-        <%= link_to product_path(product) do %>
-          <% if product.image.attached? %>
-            <%= image_tag product.image %>
-          <% else %>
-            <%= image_tag 'no_app_image'%>
+    <div class="column">
+      <div class="ui fluid card">
+        <div class="image">
+          <%= link_to product_path(product) do %>
+              <%= image_tag product.get_image(350,350) %>
           <% end %>
-        <% end %>
+        </div>
+        <div class="content">
+          <div class="header"><%= link_to product.title, product_path(product) %></div>
+          <div class="meta"><%= link_to product.user.name, user_path(product.user) %></div>
+          <div class="description"><%= product.overview %></div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">Joined in 2013</span>
+          <span>
+            <i class="user icon"></i>
+            75 Friends
+          </span>
+        </div>
       </div>
-      <div class="content">
-        <div class="header"><%= link_to product.title, product_path(product) %></div>
-        <div class="meta"><%= link_to product.user.name, user_path(product.user) %></div>
-        <div class="description"><%= product.overview %></div>
-      </div>
-      <div class="extra content">
-        <span class="right floated">Joined in 2013</span>
-        <span>
-          <i class="user icon"></i>
-          75 Friends
-        </span>
-      </div>
+
     </div>
     <% end %>
   </div>
