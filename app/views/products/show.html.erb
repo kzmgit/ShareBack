@@ -3,16 +3,9 @@
 
   <div class="ui items">
     <div class="item">
-      <% if @product.user.image.attached? %>
-        <%= link_to user_path(@product.user), class: "ui tiny image" do %>
-          <%= image_tag @product.user.image %>
-        <% end %>
-      <% else %>
-        <%= link_to user_path(@product.user), class: "ui tiny image" do %>
-          <%= image_tag 'no_user_image' %>
-        <% end %>
+      <%= link_to user_path(@product.user), class: "ui image" do %>
+        <%= image_tag @product.user.get_image(100,100) %>
       <% end %>
-
       <div class="middle aligned content">
         <%= link_to @product.user.name, user_path(@product.user) %>
         <div class="description">
@@ -24,11 +17,7 @@
   </div>
 
   <div class="ui center aligned grid">
-    <% if @product.image.attached? %>
-      <%= image_tag @product.image, class: "thirteen wide column" %>
-    <% else %>
-      <%= image_tag 'no_app_image', class: "thirteen wide column" %>
-    <% end %>
+    <%= image_tag @product.get_image(1000,600), class: "thirteen wide column" %>
   </div>
 
   <h3><%= @product.title %></h3>
