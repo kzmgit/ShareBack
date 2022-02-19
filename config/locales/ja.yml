@@ -8,7 +8,10 @@ ja:
         title: アプリ名
         url: URL
         overview: 概要
-        body: 内容
+        background: 作成背景
+        usage: 使い方
+        ingenuity: 工夫点
+        other: その他
         features: 機能一覧
         technology: 使用技術
       user:

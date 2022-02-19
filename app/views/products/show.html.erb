@@ -23,7 +23,10 @@
   <h3><%= @product.title %></h3>
   <p><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></p>
   <p><%= safe_join(@product.overview.split("\n"),tag(:br)) %></p>
-  <p><%= safe_join(@product.body.split("\n"),tag(:br)) %></p>
+  <p><%= safe_join(@product.background.split("\n"),tag(:br)) %></p>
+  <p><%= safe_join(@product.usage.split("\n"),tag(:br)) %></p>
+  <p><%= safe_join(@product.ingenuity.split("\n"),tag(:br)) %></p>
+  <p><%= safe_join(@product.other.split("\n"),tag(:br)) %></p>
   <p><%= safe_join(@product.features.split("\n"),tag(:br)) %></p>
   <p><%= safe_join(@product.technology.split("\n"),tag(:br)) %></p>
 
