@@ -20,14 +20,46 @@
     <%= image_tag @product.get_image(2000,2000), class: "thirteen wide column" %>
   </div>
 
-  <h3><%= @product.title %></h3>
-  <p><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></p>
+  <h2 class="ui dividing header"><%= @product.title %>
+    <div class="sub header"><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></div>
+  </h2>
+
   <p><%= safe_join(@product.overview.split("\n"),tag(:br)) %></p>
+
+  <h2 class="ui dividing header">
+    <i class="comment outline icon"></i>
+    <div class="content">作成背景</div>
+  </h2>
   <p><%= safe_join(@product.background.split("\n"),tag(:br)) %></p>
+
+  <h2 class="ui dividing header">
+    <i class="thumbtack icon"></i>
+    <div class="content">使い方</div>
+  </h2>
   <p><%= safe_join(@product.usage.split("\n"),tag(:br)) %></p>
+
+  <h2 class="ui dividing header">
+    <i class="lightbulb outline icon"></i>
+    <div class="content">工夫点</div>
+  </h2>
   <p><%= safe_join(@product.ingenuity.split("\n"),tag(:br)) %></p>
+
+  <h2 class="ui dividing header">
+    <i class="question circle outline icon"></i>
+    <div class="content">その他</div>
+  </h2>
   <p><%= safe_join(@product.other.split("\n"),tag(:br)) %></p>
+
+  <h2 class="ui dividing header">
+    <i class="list icon"></i>
+    <div class="content">機能一覧</div>
+  </h2>
   <p><%= safe_join(@product.features.split("\n"),tag(:br)) %></p>
+
+  <h2 class="ui dividing header">
+    <i class="code icon"></i>
+    <div class="content">使用技術</div>
+  </h2>
   <p><%= safe_join(@product.technology.split("\n"),tag(:br)) %></p>
 
   <% if current_user?(@product.user) %>
