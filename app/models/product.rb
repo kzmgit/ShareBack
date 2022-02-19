@@ -6,8 +6,8 @@ class Product < ApplicationRecord
   # 画像が存在しない場合にデフォルト画像をActiveStorageに格納する&サイズ調整。
   def get_image(width, height)
   unless image.attached?
-    file_path = Rails.root.join('app/assets/images/no_app_image.jpeg')
-    image.attach(io: File.open(file_path), filename: 'default-image.jpeg', content_type: 'image/jpeg')
+    file_path = Rails.root.join('app/assets/images/no_app_image.png')
+    image.attach(io: File.open(file_path), filename: 'default-image', content_type: 'image/png')
   end
   image.variant(resize_to_limit: [width, height]).processed
   end
