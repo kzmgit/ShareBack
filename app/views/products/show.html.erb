@@ -4,7 +4,7 @@
   <div class="ui items">
     <div class="item">
       <%= link_to user_path(@product.user), class: "ui image" do %>
-        <%= image_tag @product.user.get_image(100,100) %>
+        <%= image_tag @product.user.get_image(80,80), class: "img_status" %>
       <% end %>
       <div class="middle aligned content">
         <%= link_to @product.user.name, user_path(@product.user) %>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="ui center aligned grid">
-    <%= image_tag @product.get_image(1000,600), class: "thirteen wide column" %>
+    <%= image_tag @product.get_image(2000,2000), class: "thirteen wide column" %>
   </div>
 
   <h3><%= @product.title %></h3>

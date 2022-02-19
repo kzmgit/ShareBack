@@ -20,7 +20,7 @@
       <div class="ui fluid card">
         <div class="image">
           <%= link_to product_path(product) do %>
-              <%= image_tag product.get_image(350,350) %>
+              <%= image_tag product.get_image(1000,1000), class: "img_status" %>
           <% end %>
         </div>
         <div class="content">
