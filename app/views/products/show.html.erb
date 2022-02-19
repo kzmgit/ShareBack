@@ -22,10 +22,10 @@
 
   <h3><%= @product.title %></h3>
   <p><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></p>
-  <p><%= @product.overview %></p>
-  <p><%= @product.body %></p>
-  <p><%= @product.features %></p>
-  <p><%= @product.technology %></p>
+  <p><%= safe_join(@product.overview.split("\n"),tag(:br)) %></p>
+  <p><%= safe_join(@product.body.split("\n"),tag(:br)) %></p>
+  <p><%= safe_join(@product.features.split("\n"),tag(:br)) %></p>
+  <p><%= safe_join(@product.technology.split("\n"),tag(:br)) %></p>
 
   <% if current_user?(@product.user) %>
     <p><%= link_to '編集する', edit_product_path(@product), class: "ui button" %></p>
