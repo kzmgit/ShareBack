@@ -55,7 +55,10 @@ ActiveRecord::Schema.define(version: 2022_02_08_083224) do
     t.string "title", null: false
     t.string "url", null: false
     t.string "overview", null: false
-    t.text "body", null: false
+    t.text "background", null: false
+    t.text "usage", null: false
+    t.text "ingenuity", null: false
+    t.text "other", null: false
     t.text "features", null: false
     t.text "technology", null: false
     t.datetime "created_at", precision: 6, null: false

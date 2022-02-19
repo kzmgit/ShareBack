@@ -16,7 +16,10 @@ class Product < ApplicationRecord
   validates :title
   validates :url
   validates :overview
-  validates :body
+  validates :background
+  validates :usage
+  validates :ingenuity
+  validates :other
   validates :features
   validates :technology
   end
