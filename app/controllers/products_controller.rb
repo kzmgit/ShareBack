@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @product_feedback = Feedback.new
+    @feedbacks = @product.feedbacks
   end
 
   def new

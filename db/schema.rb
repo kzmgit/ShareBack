@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 2022_02_08_083224) do
   create_table "feedbacks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "product_id", null: false
-    t.string "title", null: false
     t.text "good_point", null: false
     t.text "improvement_point", null: false
     t.text "other"
@@ -61,9 +60,9 @@ ActiveRecord::Schema.define(version: 2022_02_08_083224) do
     t.text "background", null: false
     t.text "usage", null: false
     t.text "ingenuity", null: false
-    t.text "other", null: false
     t.text "features", null: false
     t.text "technology", null: false
+    t.text "other"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_products_on_user_id"

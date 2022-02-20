@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new]
   resources :products do
-    resources :feedbacks
+    resources :feedbacks, only: [:create]
   end
+  # フィードバック投稿失敗でrenderを使ったときのリロードエラー対策
+  get '/products/:id/feedbacks' => 'products#show'
 
 end

@@ -19,7 +19,6 @@ class Product < ApplicationRecord
   validates :background
   validates :usage
   validates :ingenuity
-  validates :other
   validates :features
   validates :technology
   end

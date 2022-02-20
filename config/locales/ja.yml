@@ -3,6 +3,7 @@ ja:
     models:
       product: 成果物
       user: ユーザー
+      feedback: フィードバック
     attributes:
       product:
         title: アプリ名
@@ -19,6 +20,10 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード再入力
+      feedback:
+        good_point: 良かった点
+        improvement_point: 改善点
+        other: その他
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
