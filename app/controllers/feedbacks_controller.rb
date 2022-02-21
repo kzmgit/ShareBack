@@ -1,6 +1,5 @@
 class FeedbacksController < ApplicationController
-  def new
-  end
+  before_action :logged_in_user, only: [:create, :destroy]
 
   def create
     @product = Product.find(params[:product_id])
@@ -15,13 +14,9 @@ class FeedbacksController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def updated
-  end
-
   def destroy
+    Feedback.find(params[:id]).destroy
+    redirect_to product_path(params[:product_id])
   end
 
   private

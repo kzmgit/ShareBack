@@ -81,6 +81,13 @@
               <%= link_to feedback.user.name, user_path(feedback.user) %>
             </div>
           </div>
+          <% if feedback.user == current_user %>
+            <div class="ui right aligned">
+              <%= link_to product_feedback_path(feedback.product,feedback), method: :delete, data: {confirm: "コメントを削除しますか？"} do %>
+                <button class="ui icon inverted red button"><i class="trash alternate icon"></i></button>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
 

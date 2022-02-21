@@ -59,14 +59,6 @@ class ProductsController < ApplicationController
     end
 
     # beforeアクション
-    # ログイン済みユーザーかどうか確認
-    def logged_in_user
-      unless logged_in?
-        flash[:error] = "ログインしてください"
-        redirect_to login_path
-      end
-    end
-
     # userがカレントユーザーであればtrueを返す
     def correct_user
       product = Product.find(params[:id])
@@ -75,6 +67,5 @@ class ProductsController < ApplicationController
         redirect_to root_path
       end
     end
-
 
 end
