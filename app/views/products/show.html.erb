@@ -1,6 +1,4 @@
 <div class="ui container">
-  <h2>成果物詳細ページ</h2>
-
   <div class="ui items">
     <div class="item">
       <%= link_to user_path(@product.user), class: "ui image" do %>
@@ -26,43 +24,102 @@
 
   <p><%= safe_join(@product.overview.split("\n"),tag(:br)) %></p>
 
-  <h2 class="ui dividing header">
+  <div class="ui dividing large header">
     <i class="comment outline icon"></i>
     <div class="content">作成背景</div>
-  </h2>
+  </div>
   <p><%= safe_join(@product.background.split("\n"),tag(:br)) %></p>
 
-  <h2 class="ui dividing header">
+  <div class="ui dividing large header">
     <i class="thumbtack icon"></i>
     <div class="content">使い方</div>
-  </h2>
+  </div>
   <p><%= safe_join(@product.usage.split("\n"),tag(:br)) %></p>
 
-  <h2 class="ui dividing header">
+  <div class="ui dividing large header">
     <i class="lightbulb outline icon"></i>
     <div class="content">工夫点</div>
-  </h2>
+  </div>
   <p><%= safe_join(@product.ingenuity.split("\n"),tag(:br)) %></p>
 
-  <h2 class="ui dividing header">
-    <i class="question circle outline icon"></i>
-    <div class="content">その他</div>
-  </h2>
-  <p><%= safe_join(@product.other.split("\n"),tag(:br)) %></p>
-
-  <h2 class="ui dividing header">
-    <i class="list icon"></i>
+  <div class="ui dividing large header">
+    <i class="pencil alternate icon"></i>
     <div class="content">機能一覧</div>
-  </h2>
+  </div>
   <p><%= safe_join(@product.features.split("\n"),tag(:br)) %></p>
 
-  <h2 class="ui dividing header">
+  <div class="ui dividing large header">
     <i class="code icon"></i>
     <div class="content">使用技術</div>
-  </h2>
+  </div>
   <p><%= safe_join(@product.technology.split("\n"),tag(:br)) %></p>
+
+  <% if @product.other? %>
+    <div class="ui dividing large header">
+      <i class="info circle icon"></i>
+      <div class="content">その他</div>
+    </div>
+    <p><%= safe_join(@product.other.split("\n"),tag(:br)) %></p>
+  <% end %>
 
   <% if current_user?(@product.user) %>
     <p><%= link_to '編集する', edit_product_path(@product), class: "ui button" %></p>
   <% end %>
+
+
+  <h2>フィードバック</h2>
+  <% @feedbacks.each do |feedback| %>
+    <div class="ui piled segment">
+      <div class="ui feed">
+        <div class="event">
+          <div class="label">
+            <%= image_tag feedback.user.get_image(50,50), class: "img_status" %>
+          </div>
+          <div class="content">
+            <div class="date"><%= l feedback.created_at %></div>
+            <div class="summary">
+              <%= link_to feedback.user.name, user_path(feedback.user) %>
+            </div>
+          </div>
+          <% if feedback.user == current_user %>
+            <div class="ui right aligned">
+              <%= link_to product_feedback_path(feedback.product,feedback), method: :delete, data: {confirm: "コメントを削除しますか？"} do %>
+                <button class="ui icon inverted red button"><i class="trash alternate icon"></i></button>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="ui header">良かった点</div>
+        <p><%= feedback.good_point %></p>
+      <h3 class="ui header">改善点</h3>
+        <p><%= feedback.improvement_point %></p>
+      <% if feedback.other? %>
+        <h3 class="ui header">その他</h3>
+          <p><%= feedback.other %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <!--フィードバックフォーム-->
+  <div class="ui large form error">
+    <%= form_with model: [@product,@product_feedback], local: true do |f| %>
+      <%= render 'shared/error_messages', object: @product_feedback %>
+      <div class="field">
+        <%= f.label :good_point %>
+        <%= f.text_area :good_point, rows: 7 %>
+      </div>
+      <div class="field">
+        <%= f.label :improvement_point %>
+        <%= f.text_area :improvement_point, rows: 7 %>
+      </div>
+      <div class="field">
+        <%= f.label :other %>
+        <%= f.text_area :other, rows: 2 %>
+      </div>
+      <%= f.submit 'フィードバックをする', class: "ui blue button" %>
+    <% end %>
+  </div>
+
 </div>
