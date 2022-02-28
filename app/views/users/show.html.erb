@@ -1,16 +1,76 @@
 <div class="ui container">
-  <h1>ユーザー詳細ページ</h1>
+  <h1>マイページ</h1>
 
-  <%= image_tag @user.get_image(150,150) %>
-  <h3>名前: <%= @user.name %></h3>
-  <h3>メールアドレス: <%= @user.email %></h3>
+  <div class="ui two column stackable grid">
+    <!--左側-->
+    <div class="five wide column">
+      <div class="ui segment center aligned">
+        <div class="ui tiny image">
+          <%= image_tag @user.get_image(100,100) %>
+        </div>
+        <div class="content">
+          <p class="header"><%= @user.name %></p>
+          <p class="meta"><%= @user.email %></p>
+        </div>
+        <div class="ui divider"></div>
+        <!--メニュータブ-->
+        <div class="ui vertical menu" style="margin: auto; max-width: 100%">
+          <a class="active item" data-tab="profile">プロフィール</a>
+          <a class="item" data-tab="products">成果物</a>
+        </div>
+      </div>
+    </div>
 
-  <% if current_user?(@user) %>
-    <p><%= link_to 'ユーザー情報を編集する', edit_user_path(@user), class: "ui primary button" %></p>
-  <% end %>
+    <!--右側-->
+    <div class="eleven wide column">
+      <!--プロフィール-->
+      <div class="ui active tab segment" data-tab="profile">
+        <div class="ui dividing medium header">プロフィール
+          <% if current_user?(@user) %>
+            <div class="ui right floated sub header">
+              <%= link_to '編集する', edit_user_path(@user) %>
+            </div>
+          <% end %>
+        </div>
+        <div class="ui two column grid">
+          <div class="five wide column">名前</div>
+          <div class="eleven wide column"><%= @user.name %></div>
+          <div class="five wide column">メールアドレス</div>
+          <div class="eleven wide column"><%= @user.email %></div>
+          <div class="five wide column">自己紹介</div>
+          <div class="eleven wide column"><%= @user.introduction %></div>
+        </div>
+      </div>
 
-  <h2>ユーザー成果物</h2>
-  <% @products.each do |product| %>
-  <p><%= link_to product.title, product_path(product) %></p>
-  <% end %>
+    <!--成果物-->
+      <div class="ui tab segment" data-tab="products" style="margin: auto">
+        <div class="ui dividing medium header">成果物</div>
+          <div class="ui link cards two column stackable grid">
+            <% @products.each do |product| %>
+            <div class="column">
+              <div class="ui fluid card">
+                <div class="image">
+                  <%= link_to product_path(product) do %>
+                      <%= image_tag product.get_image(1000,1000), class: "img_status" %>
+                  <% end %>
+                </div>
+                <div class="content">
+                  <div class="header"><%= link_to product.title, product_path(product) %></div>
+                  <div class="description"><%= product.overview %></div>
+                </div>
+                <div class="extra content">
+                  <span class="right floated">更新日？</span>
+                  <span>
+                    <i class="user icon"></i>
+                    いいね数？
+                  </span>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+
+  </div>
 </div>

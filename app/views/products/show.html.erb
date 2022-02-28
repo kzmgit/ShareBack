@@ -19,12 +19,12 @@
   </div>
 
   <!--タブ機能-->
-  <div class="ui top attached tabular menu">
+  <div class="ui two item menu">
     <a class="active item" data-tab="product_show">成果物詳細</a>
     <a class="item" data-tab="feedbacks">フィードバック</a>
   </div>
   <!--タブ（成果物詳細）-->
-  <div class="ui bottom attached active tab segment" data-tab="product_show">
+  <div class="ui active tab segment" data-tab="product_show">
     <h2 class="ui dividing header"><%= @product.title %>
       <div class="sub header"><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></div>
     </h2>
@@ -74,7 +74,7 @@
     <% end %>
   </div>
   <!--タブ（フィードバック）-->
-  <div class="ui bottom attached tab segment" data-tab="feedbacks">
+  <div class="ui tab segment" data-tab="feedbacks">
     <% if @feedbacks.empty? %>
       <p>この投稿にまだフィードバックはありません。</p>
     <% end %>
@@ -134,7 +134,5 @@
     </div>
   </div>
   <!--↑タブ機能おわり-->
-
-
 
 </div>

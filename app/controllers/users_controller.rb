@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+      params.require(:user).permit(:name, :email, :introduction, :password, :password_confirmation, :image)
     end
 
     # @userがカレントユーザーであればtrueを返す
