@@ -26,6 +26,11 @@
   <!--タブ（成果物詳細）-->
   <div class="ui active tab segment" data-tab="product_show">
     <h2 class="ui dividing header"><%= @product.title %>
+      <% if current_user?(@product.user) %>
+        <div class="ui right floated sub header">
+          <p><%= link_to '編集する', edit_product_path(@product) %></p>
+        </div>
+      <% end %>
       <div class="sub header"><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></div>
     </h2>
 
@@ -67,10 +72,6 @@
         <div class="content">その他</div>
       </div>
       <p><%= safe_join(@product.other.split("\n"),tag(:br)) %></p>
-    <% end %>
-
-    <% if current_user?(@product.user) %>
-      <p><%= link_to '編集する', edit_product_path(@product), class: "ui button" %></p>
     <% end %>
   </div>
   <!--タブ（フィードバック）-->
