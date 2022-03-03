@@ -1,5 +1,4 @@
-<div class="ui menu">
- <!--ログインしていたら-->
+<header class="ui menu">
 <% if logged_in? %>
     <%= link_to "ShareBack", root_path, class: "item" %>
     <%= link_to "成果物一覧", products_path, class: "item" %>
@@ -22,4 +21,4 @@
         </div>
     </div>
 <% end %>
-</div>
+</header>

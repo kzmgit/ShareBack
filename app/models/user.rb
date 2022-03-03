@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :products, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_one_attached :image
 
   # 画像が存在しない場合にデフォルト画像をActiveStorageに格納する&サイズ調整。
