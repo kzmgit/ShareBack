@@ -62,15 +62,7 @@
                 <div class="extra content">
                   <span class="right floated">更新日: <%= l product.updated_at %></span>
                   <span>
-                    <% if product.favorited_by?(current_user) %>
-                      <%= link_to product_favorites_path(product), method: :delete do %>
-                        <i class="heart icon heart-on"></i>
-                      <% end %>
-                    <% else %>
-                      <%= link_to product_favorites_path(product), method: :post do %>
-                        <i class="heart outline icon"></i>
-                      <% end %>
-                    <% end %>
+                    <%= render partial: 'favorites/favorite_btn', locals: { product: product } %>
                   </span>
                 </div>
               </div>
@@ -98,15 +90,7 @@
                 <div class="extra content">
                   <span class="right floated">更新日: <%= l product.updated_at %></span>
                   <span>
-                    <% if product.favorited_by?(current_user) %>
-                      <%= link_to product_favorites_path(product), method: :delete do %>
-                        <i class="heart icon heart-on"></i>
-                      <% end %>
-                    <% else %>
-                      <%= link_to product_favorites_path(product), method: :post do %>
-                        <i class="heart outline icon"></i>
-                      <% end %>
-                    <% end %>
+                    <%= render partial: 'favorites/favorite_btn', locals: { product: product } %>
                   </span>
                 </div>
               </div>
