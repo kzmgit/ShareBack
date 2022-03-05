@@ -32,7 +32,7 @@
           <p><%= link_to '編集する', edit_product_path(@product) %></p>
         </div>
       <% end %>
-
+      <!--いいねボタン-->
       <span id="favorite_btn_<%= @product.id %>" class="ui right floated sub header" style="padding-top: 2.1px;">
         <%= render partial: 'favorites/favorite_btn', locals: { product: @product } %>
       </span>
@@ -83,58 +83,30 @@
   <!--タブ（フィードバック）-->
   <div class="ui tab segment" data-tab="feedbacks">
     <% if @feedbacks.empty? %>
-      <p>この投稿にまだフィードバックはありません。</p>
+      <span class="feedbacks_empty">この投稿にまだフィードバックはありません。</span>
     <% end %>
-    <% @feedbacks.each do |feedback| %>
-      <div class="ui piled segment">
-        <div class="ui feed">
-          <div class="event">
-            <div class="label">
-              <%= image_tag feedback.user.get_image(50,50), class: "img_status" %>
-            </div>
-            <div class="content">
-              <div class="date"><%= l feedback.created_at %></div>
-              <div class="summary">
-                <%= link_to feedback.user.name, user_path(feedback.user) %>
-              </div>
-            </div>
-            <% if feedback.user == current_user %>
-              <div class="ui right aligned">
-                <%= link_to product_feedback_path(feedback.product,feedback), method: :delete, data: {confirm: "コメントを削除しますか？"} do %>
-                  <button class="ui icon inverted red button"><i class="trash alternate icon"></i></button>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="ui header">良かった点</div>
-          <p><%= feedback.good_point %></p>
-        <h3 class="ui header">改善点</h3>
-          <p><%= feedback.improvement_point %></p>
-        <% if feedback.other? %>
-          <h3 class="ui header">その他</h3>
-            <p><%= feedback.other %></p>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="feedback">
+      <%= render partial: 'feedbacks/index', locals: {feedbacks: @feedbacks} %>
+    </div>
 
     <!--フィードバックフォーム-->
     <h3>フィードバックを送る</h3>
     <div class="ui large form error">
-      <%= form_with model: [@product,@product_feedback], local: true do |f| %>
-        <%= render 'shared/error_messages', object: @product_feedback %>
+      <%= form_with model: [@product,@product_feedback], local: false do |f| %>
+        <div class="feedback_error">
+          <%= render 'shared/error_messages', object: @product_feedback %>
+        </div>
         <div class="field">
           <%= f.label :good_point %>
-          <%= f.text_area :good_point, rows: 7 %>
+          <%= f.text_area :good_point, rows: 7, class: "good_point" %>
         </div>
         <div class="field">
           <%= f.label :improvement_point %>
-          <%= f.text_area :improvement_point, rows: 7 %>
+          <%= f.text_area :improvement_point, rows: 7, class: "improvement_point" %>
         </div>
         <div class="field">
           <%= f.label :other %>
-          <%= f.text_area :other, rows: 2 %>
+          <%= f.text_area :other, rows: 2, class: "feedback_other" %>
         </div>
         <%= f.submit '送信', class: "ui blue button" %>
       <% end %>

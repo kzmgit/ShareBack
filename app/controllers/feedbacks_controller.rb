@@ -3,20 +3,19 @@ class FeedbacksController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
+    @feedbacks = @product.feedbacks
     @product_feedback = Feedback.new(feedback_params)
     @product_feedback.user_id = current_user.id
     @product_feedback.product_id = @product.id
-    if @product_feedback.save
-      redirect_to product_path(@product)
-    else
-      @feedbacks = @product.feedbacks
-      render "products/show"
+    unless @product_feedback.save
+      render "error" # feedbacks/error.js.erb
     end
   end
 
   def destroy
+    @product = Product.find(params[:product_id])
+    @feedbacks = @product.feedbacks
     Feedback.find(params[:id]).destroy
-    redirect_to product_path(params[:product_id])
   end
 
   private
