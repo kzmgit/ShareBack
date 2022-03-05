@@ -1,7 +1,7 @@
 <div class="ui container">
   <h3>成果物投稿</h3>
   <div class="ui large form error">
-    <%= form_with model: @product, local: true do |f| %>
+    <%= form_with model: @product do |f| %>
       <%= render 'shared/error_messages', object: @product %>
       <div class="field">
         <label>画像</label>

@@ -1,0 +1,33 @@
+<% feedbacks.each do |feedback| %>
+  <div class="ui piled segment">
+    <div class="ui feed">
+      <div class="event">
+        <div class="label">
+          <%= image_tag feedback.user.get_image(50,50), class: "img_status" %>
+        </div>
+        <div class="content">
+          <div class="date"><%= l feedback.created_at %></div>
+          <div class="summary">
+            <%= link_to feedback.user.name, user_path(feedback.user) %>
+          </div>
+        </div>
+        <% if feedback.user == current_user %>
+          <div class="ui right aligned">
+            <%= link_to product_feedback_path(feedback.product,feedback), method: :delete, data: {confirm: "コメントを削除しますか？"}, remote: true do %>
+              <button class="ui icon inverted red button"><i class="trash alternate icon"></i></button>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="ui header">良かった点</div>
+      <p><%= feedback.good_point %></p>
+    <h3 class="ui header">改善点</h3>
+      <p><%= feedback.improvement_point %></p>
+    <% if feedback.other? %>
+      <h3 class="ui header">その他</h3>
+        <p><%= feedback.other %></p>
+    <% end %>
+  </div>
+<% end %>

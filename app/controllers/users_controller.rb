@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @products = Product.where(user_id: @user.id)
+    # @userがいいねしたproductのidを配列でfavoritesに保存
+    favorites = Favorite.where(user_id: @user.id).pluck(:product_id)
+    @favorites_products = Product.find(favorites)
   end
 
   def new

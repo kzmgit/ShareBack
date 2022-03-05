@@ -1,0 +1,6 @@
+$(".feedback").html("<%= j(render partial: 'feedbacks/index', locals: {feedbacks: @feedbacks}) %>");
+
+<!--フィードバックが無い場合(全て削除された場合)に説明を入れる-->
+<% if @feedbacks.empty? %>
+  $(".feedbacks_empty").text("この投稿にまだフィードバックはありません。");
+<% end %>

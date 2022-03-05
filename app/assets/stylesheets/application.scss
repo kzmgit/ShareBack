@@ -20,3 +20,21 @@
 .img_status {
   width: 100%;
 }
+
+// headerが見切れたらスクロールできるように
+header {
+  overflow: scroll;
+   /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+  -ms-overflow-style: none;
+   /*Firefoxへの対応*/
+  scrollbar-width: none;
+}
+ /*Google Chrome、Safariへの対応*/
+header::-webkit-scrollbar{
+  display: none;
+}
+
+//ハートの色
+.heart-on {
+  color: #FF7696;
+}

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   resources :products do
     resources :feedbacks, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
   # フィードバック投稿失敗でrenderを使ったときのリロードエラー対策
   get '/products/:id/feedbacks' => 'products#show'
