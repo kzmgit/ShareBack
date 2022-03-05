@@ -30,7 +30,7 @@
         </div>
         <div class="extra content">
           <span class="right floated">更新日: <%= l product.updated_at %></span>
-          <span>
+          <span id="favorite_btn_<%= product.id %>">
             <%= render partial: 'favorites/favorite_btn', locals: { product: product } %>
           </span>
         </div>

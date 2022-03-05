@@ -33,19 +33,10 @@
         </div>
       <% end %>
 
-      <% if @product.favorited_by?(current_user) %>
-        <div class="ui right floated sub header" style="padding-top: 2.1px;">
-          <%= link_to product_favorites_path(@product), method: :delete do %>
-            <i class="heart icon heart-on"></i>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="ui right floated sub header" style="padding-top: 2.1px;">
-          <%= link_to product_favorites_path(@product), method: :post do %>
-            <i class="heart outline icon"></i>
-          <% end %>
-        </div>
-      <% end %>
+      <span id="favorite_btn_<%= @product.id %>" class="ui right floated sub header" style="padding-top: 2.1px;">
+        <%= render partial: 'favorites/favorite_btn', locals: { product: @product } %>
+      </span>
+
       <div class="sub header"><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></div>
     </h2>
 

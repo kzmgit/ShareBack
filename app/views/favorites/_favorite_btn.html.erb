@@ -1,9 +1,9 @@
 <% if product.favorited_by?(current_user) %>
-  <%= link_to product_favorites_path(product), method: :delete do %>
+  <%= link_to product_favorites_path(product), method: :delete, remote: true do %>
     <i class="heart icon heart-on"></i>
   <% end %>
 <% else %>
-  <%= link_to product_favorites_path(product), method: :post do %>
+  <%= link_to product_favorites_path(product), method: :post, remote: true do %>
     <i class="heart outline icon"></i>
   <% end %>
 <% end %>
