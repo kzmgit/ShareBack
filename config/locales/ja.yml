@@ -8,6 +8,7 @@ ja:
       product:
         title: アプリ名
         url: URL
+        tag_names: タグ
         overview: 概要
         background: 作成背景
         usage: 使い方

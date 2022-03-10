@@ -21,6 +21,8 @@ class ProductsController < ApplicationController
     @product.user_id = current_user.id
     if @product.save
       flash[:success] = "投稿しました！"
+      tag_list = params[:product][:tag_names].delete(' ').delete('　').split(',')
+      @product.save_tags(tag_list)
       redirect_to product_path(@product)
     else
       render :new
@@ -29,12 +31,15 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @tag_list = @product.tags.pluck(:name).join(', ')
   end
 
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:success] = "変更を保存しました！"
+      tag_list = params[:product][:tag_names].delete(' ').delete('　').split(',')
+      @product.save_tags(tag_list)
       redirect_to product_path(@product)
     else
       render :edit

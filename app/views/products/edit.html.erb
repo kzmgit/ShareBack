@@ -1,7 +1,7 @@
 <div class="ui container">
   <h2>成果物編集</h2>
   <div class="ui large form error">
-    <%= form_with model: @product, local: true do |f| %>
+    <%= form_with model: @product do |f| %>
       <%= render 'shared/error_messages', object: @product %>
       <div class="field">
         <label>画像</label>
@@ -14,6 +14,10 @@
       <div class="field">
         <%= f.label :url %>
         <%= f.text_field :url %>
+      </div>
+      <div class="field">
+        <%= f.label :tag_names %>
+        <%= f.text_field :tag_names, value: @tag_list, placeholder: "成果物に関連するタグをカンマ区切りで5つまで入力。（例：Ruby, Rails）" %>
       </div>
       <div class="field">
         <%= f.label :overview %>
