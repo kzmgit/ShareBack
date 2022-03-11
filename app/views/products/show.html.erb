@@ -17,10 +17,13 @@
   <div class="ui center aligned grid">
     <%= image_tag @product.get_image(2000,2000), class: "thirteen wide column" %>
   </div>
-  <div class="ui tag labels">
-    <% @product.tags.pluck(:name).each do |tag| %>
-      <a class="ui label"><%= tag %></a>
-    <% end %>
+
+  <div class="ui grid">
+    <div class="ui blue labels">
+      <% @product.tags.pluck(:name).each do |tag| %>
+        <a class="ui blue basic label"><%= tag %></a>
+      <% end %>
+    </div>
   </div>
 
   <!--タブ機能-->
