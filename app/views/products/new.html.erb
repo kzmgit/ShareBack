@@ -17,7 +17,7 @@
       </div>
       <div class="field">
         <%= f.label :tag_names %>
-        <%= f.text_field :tag_names, placeholder: "成果物に関連するタグをカンマ区切りで5つまで入力。（例：Ruby,Rails）" %>
+        <%= f.text_field :tag_names, value: @tag_list, placeholder: "成果物に関連するタグをカンマ区切りで5つまで入力。（例：Ruby,Rails）" %>
       </div>
       <div class="field">
         <%= f.label :overview %>

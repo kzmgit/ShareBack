@@ -4,7 +4,9 @@ class Product < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
+
   has_one_attached :image
+  MAX_TAGS_COUNT = 5
 
   with_options presence: true do
   validates :title
@@ -50,6 +52,16 @@ class Product < ApplicationRecord
     new_tags.each do |new|
       new_post_tag = Tag.find_or_create_by(name: new)
       self.tags << new_post_tag
+    end
+  end
+
+  #タグ数の上限を設定
+  def max_tags(tags_count)
+    if tags_count > MAX_TAGS_COUNT
+      self.errors.add(:base, "タグは#{MAX_TAGS_COUNT}つ以内で指定してください")
+      return false
+    else
+      return true
     end
   end
 
