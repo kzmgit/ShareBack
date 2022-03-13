@@ -1,6 +1,5 @@
 <div class="ui container">
   <h2>成果物一覧</h2>
-
     <div class="ui stackable grid">
       <div class="four column row">
         <div class="right floated column">
@@ -13,6 +12,12 @@
         </div>
       </div>
     </div>
+
+  <% if params[:tag_name].present? %>
+    <div class="ui horizontal divider">
+      <h1><%= params[:tag_name] %></h1>
+    </div>
+  <% end%>
 
   <div class="ui link cards three column stackable grid">
     <% @products.each do |product| %>
@@ -35,7 +40,7 @@
         <div class="extra content">
           <div class="ui blue mini labels">
             <% product.tags.pluck(:name).each do |tag| %>
-              <a class="ui blue basic mini label"><%= tag %></a>
+              <%= link_to tag, products_path(tag_name: tag), class: "ui blue basic mini label" %>
             <% end %>
           </div>
         </div>

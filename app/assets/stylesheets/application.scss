@@ -38,3 +38,8 @@ header::-webkit-scrollbar{
 .heart-on {
   color: #FF7696;
 }
+
+// タグ選択後の一覧表示でタグ名が大文字になるのを修正
+.ui.divider {
+  text-transform: none;
+}

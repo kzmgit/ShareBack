@@ -3,7 +3,11 @@ class ProductsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    if params[:tag_name].present?
+      @products = Tag.find_by(name: params[:tag_name]).products
+    else
+      @products = Product.all
+    end
   end
 
   def show

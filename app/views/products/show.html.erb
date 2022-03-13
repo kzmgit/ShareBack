@@ -21,7 +21,7 @@
   <div class="ui grid">
     <div class="ui blue labels">
       <% @product.tags.pluck(:name).each do |tag| %>
-        <a class="ui blue basic label"><%= tag %></a>
+        <%= link_to tag, products_path(tag_name: tag), class: "ui blue basic label" %>
       <% end %>
     </div>
   </div>
