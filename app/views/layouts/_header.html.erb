@@ -1,7 +1,7 @@
 <header class="ui menu">
 <% if logged_in? %>
     <%= link_to "ShareBack", root_path, class: "item" %>
-    <%= link_to "成果物一覧", products_path, class: "item" %>
+    <%= link_to "タグから探す", tags_path, class: "item" %>
     <div class="right menu">
         <%= link_to "マイページ", user_path(current_user), class: "item" %>
         <div class="item">
@@ -11,7 +11,7 @@
 <% else %>
     <%= link_to "ShareBack", root_path, class: "item" %>
     <%= link_to "ShareBackとは？", about_path, class: "item" %>
-    <%= link_to "成果物一覧", products_path, class: "item" %>
+    <%= link_to "タグから探す", tags_path, class: "item" %>
     <div class="right menu">
         <div class="item">
             <%= link_to "新規登録", sign_up_path, class: "ui button primary" %>
