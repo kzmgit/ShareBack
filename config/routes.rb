@@ -12,7 +12,5 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-  # フィードバック投稿失敗でrenderを使ったときのリロードエラー対策
-  get '/products/:id/feedbacks' => 'products#show'
-
+  resources :tags, only: [:index, :show], param: :word
 end

@@ -58,14 +58,20 @@
                   <% end %>
                 </div>
                 <div class="content">
-                  <div class="header"><%= link_to product.title, product_path(product) %></div>
+                  <div class="ui dividing header"><%= link_to product.title, product_path(product) %>
+                    <span id="favorite_btn_<%= product.id %>" class="ui right floated sub header" style="padding-top: 2.1px;">
+                      <%= render partial: 'favorites/favorite_btn', locals: { product: product } %>
+                    </span>
+                    <div class="sub header"><%= link_to product.user.name, user_path(product.user), style: "color: gray;" %></div>
+                  </div>
                   <div class="description"><%= product.overview %></div>
                 </div>
                 <div class="extra content">
-                  <span class="right floated">更新日: <%= l product.updated_at %></span>
-                  <span id="favorite_btn_<%= product.id %>">
-                    <%= render partial: 'favorites/favorite_btn', locals: { product: product } %>
-                  </span>
+                  <div class="ui blue mini labels">
+                    <% product.tags.each do |tag| %>
+                      <%= link_to tag.name, tag_path(tag.url_word), class: "ui blue basic mini label" %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -87,14 +93,20 @@
                     <% end %>
                   </div>
                   <div class="content">
-                    <div class="header"><%= link_to product.title, product_path(product) %></div>
+                    <div class="ui dividing header"><%= link_to product.title, product_path(product) %>
+                      <span id="favorite_btn_<%= product.id %>" class="ui right floated sub header" style="padding-top: 2.1px;">
+                        <%= render partial: 'favorites/favorite_btn', locals: { product: product } %>
+                      </span>
+                      <div class="sub header"><%= link_to product.user.name, user_path(product.user), style: "color: gray;" %></div>
+                    </div>
                     <div class="description"><%= product.overview %></div>
                   </div>
                   <div class="extra content">
-                    <span class="right floated">更新日: <%= l product.updated_at %></span>
-                    <span id="favorite_btn_<%= product.id %>">
-                      <%= render partial: 'favorites/favorite_btn', locals: { product: product } %>
-                    </span>
+                    <div class="ui blue mini labels">
+                      <% product.tags.each do |tag| %>
+                        <%= link_to tag.name, tag_path(tag.url_word), class: "ui blue basic mini label" %>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -18,6 +18,14 @@
     <%= image_tag @product.get_image(2000,2000), class: "thirteen wide column" %>
   </div>
 
+  <div class="ui grid">
+    <div class="ui blue labels">
+      <% @product.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.url_word), class: "ui blue basic label" %>
+      <% end %>
+    </div>
+  </div>
+
   <!--タブ機能-->
   <div class="ui two item menu">
     <a class="active item" data-tab="product_show">成果物詳細</a>

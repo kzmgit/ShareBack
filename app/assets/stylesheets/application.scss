@@ -21,7 +21,7 @@
   width: 100%;
 }
 
-// headerが見切れたらスクロールできるように
+// headerが見切れたら横スクロールできるように
 header {
   overflow: scroll;
    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
@@ -37,4 +37,15 @@ header::-webkit-scrollbar{
 //ハートの色
 .heart-on {
   color: #FF7696;
+}
+
+// /tags/showでタグ名が大文字になるのを修正
+.ui.divider {
+  text-transform: none;
+}
+
+// /tagsのボタン
+
+.tags_btn {
+  width: 100%;
 }
