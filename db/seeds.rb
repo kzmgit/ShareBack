@@ -16,8 +16,17 @@
   )
 end
 
-# Product
+# Tag
 tag_names = ["Ruby","Rails","Python","AWS","JavaScript","React","PHP","Laravel","Docker","Go","Vue.js","Java"]
+# url_word作成用
+def create_url_word(tag_name)
+  if tag_name.index('.')
+    tag_name = tag_name.gsub('.','-')
+  end
+  tag_name = tag_name.downcase
+end
+
+# Product
 5.times do |n|
   product = Product.create!(
     user_id: n+1,
@@ -31,10 +40,11 @@ tag_names = ["Ruby","Rails","Python","AWS","JavaScript","React","PHP","Laravel",
     features: "機能一覧が入ります。",
     technology: "使用技術が入ります。"
   )
-  
+
+  # プロダクトにタグをランダムに3つ付与する
   new_tags = tag_names.sample(3)
   new_tags.each do |new|
-    new_tag = Tag.find_or_create_by(name: new)
+    new_tag = Tag.find_or_create_by(name: new, url_word: create_url_word(new))
     product.tags << new_tag
   end
 end

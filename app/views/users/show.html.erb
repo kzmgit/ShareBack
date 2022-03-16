@@ -68,8 +68,8 @@
                 </div>
                 <div class="extra content">
                   <div class="ui blue mini labels">
-                    <% product.tags.pluck(:name).each do |tag| %>
-                      <%= link_to tag, products_path(tag_name: tag), class: "ui blue basic mini label" %>
+                    <% product.tags.each do |tag| %>
+                      <%= link_to tag.name, tag_path(tag.url_word), class: "ui blue basic mini label" %>
                     <% end %>
                   </div>
                 </div>
@@ -103,8 +103,8 @@
                   </div>
                   <div class="extra content">
                     <div class="ui blue mini labels">
-                      <% product.tags.pluck(:name).each do |tag| %>
-                        <%= link_to tag, products_path(tag_name: tag), class: "ui blue basic mini label" %>
+                      <% product.tags.each do |tag| %>
+                        <%= link_to tag.name, tag_path(tag.url_word), class: "ui blue basic mini label" %>
                       <% end %>
                     </div>
                   </div>

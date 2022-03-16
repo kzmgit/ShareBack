@@ -36,6 +36,14 @@ class Product < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+  # url用に文字列を生成する
+  def create_url_word(tag_name)
+    if tag_name.index('.')
+      tag_name = tag_name.gsub('.','-')
+    end
+    tag_name = tag_name.downcase
+  end
+
   #タグ機能
   def save_tags(sent_tags)
     # すでに付与されているタグを取得
@@ -50,7 +58,7 @@ class Product < ApplicationRecord
     end
     # 新しいタグを保存
     new_tags.each do |new|
-      new_post_tag = Tag.find_or_create_by(name: new)
+      new_post_tag = Tag.find_or_create_by(name: new, url_word: create_url_word(new))
       self.tags << new_post_tag
     end
   end

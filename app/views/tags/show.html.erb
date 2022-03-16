@@ -1,17 +1,7 @@
 <div class="ui container">
-  <h2>成果物一覧</h2>
-    <div class="ui stackable grid">
-      <div class="four column row">
-        <div class="right floated column">
-          <%= link_to new_product_path do %>
-            <button class="ui primary basic button">
-              <i class="plus square icon"></i>
-              新規投稿
-            </button>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div class="ui horizontal divider">
+    <h1><%= @tag.name %></h1>
+  </div>
 
   <div class="ui link cards three column stackable grid">
     <% @products.each do |product| %>
@@ -42,5 +32,4 @@
     </div>
     <% end %>
   </div>
-
 </div>

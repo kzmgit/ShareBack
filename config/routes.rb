@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-
+  resources :tags, only: [:index, :show], param: :word
 end
