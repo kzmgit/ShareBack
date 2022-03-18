@@ -1,24 +1,27 @@
 <header class="ui menu">
 <% if logged_in? %>
-    <%= link_to "ShareBack", root_path, class: "item" %>
-    <%= link_to "タグから探す", tags_path, class: "item" %>
-    <div class="right menu">
-        <%= link_to "マイページ", user_path(current_user), class: "item" %>
-        <div class="item">
-            <%= link_to "ログアウト", logout_path, method: :delete, class: "ui button" %>
-        </div>
+  <%= link_to "ShareBack", root_path, class: "item" %>
+  <%= link_to "タグから探す", tags_path, class: "item" %>
+  <div class="right menu">
+    <%= link_to "マイページ", user_path(current_user), class: "item" %>
+    <div class="item">
+      <%= link_to "新規投稿", new_product_path, class: "ui button" %>
     </div>
+  </div>
 <% else %>
-    <%= link_to "ShareBack", root_path, class: "item" %>
-    <%= link_to "ShareBackとは？", about_path, class: "item" %>
-    <%= link_to "タグから探す", tags_path, class: "item" %>
-    <div class="right menu">
-        <div class="item">
-            <%= link_to "新規登録", sign_up_path, class: "ui button primary" %>
-        </div>
-        <div class="item">
-            <%= link_to "ログイン", login_path, class: "ui button" %>
-        </div>
+  <%= link_to "ShareBack", root_path, class: "item" %>
+  <%= link_to "ShareBackとは？", about_path, class: "item" %>
+  <%= link_to "タグから探す", tags_path, class: "item" %>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to "新規登録", sign_up_path, class: "ui button primary" %>
     </div>
+    <div class="item">
+      <%= link_to "ログイン", login_path, class: "ui button primary" %>
+    </div>
+    <div class="item">
+      <%= link_to "新規投稿", new_product_path, class: "ui button" %>
+    </div>
+  </div>
 <% end %>
 </header>

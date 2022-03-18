@@ -19,6 +19,7 @@
           <a class="item" data-tab="products">成果物</a>
           <% if current_user?(@user) %>
             <a class="item" data-tab="favorites">お気に入り</a>
+            <%= link_to "ログアウト", logout_path, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "item" %>
           <% end %>
         </div>
       </div>
