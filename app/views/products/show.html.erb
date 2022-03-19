@@ -116,7 +116,11 @@
           <%= f.label :other %>
           <%= f.text_area :other, rows: 2, class: "feedback_other" %>
         </div>
-        <%= f.submit '送信', class: "ui blue button" %>
+
+        <button class="ui labeled icon blue button">
+          <i class="paper plane icon"></i>
+          <%= f.submit '送信', class: "submit" %>
+        </button>
       <% end %>
     </div>
   </div>

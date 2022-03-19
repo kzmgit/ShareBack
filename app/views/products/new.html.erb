@@ -1,5 +1,5 @@
 <div class="ui container">
-  <h2>成果物投稿</h2>
+  <h2 class="heading">成果物投稿</h2>
   <div class="ui large form error">
     <%= form_with model: @product do |f| %>
       <%= render 'shared/error_messages', object: @product %>
@@ -47,7 +47,7 @@
         <%= f.label :technology %>
         <%= f.text_area :technology %>
       </div>
-      <%= f.submit '新規登録', class: "ui blue button" %>
+      <%= f.submit '投稿する', class: "ui blue button" %>
     <% end %>
   </div>
 </div>

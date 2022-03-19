@@ -1,5 +1,5 @@
 <div class="ui container">
-  <h2>成果物編集</h2>
+  <h2 class="heading">成果物編集</h2>
   <div class="ui large form error">
     <%= form_with model: @product do |f| %>
       <%= render 'shared/error_messages', object: @product %>
@@ -51,13 +51,11 @@
         <i class="save icon"></i>
         <%= f.submit '変更内容を保存する', class: "ui green button " %>
       </div>
-    <% end %>
-  </div>
 
-  <div class="ui hidden divider">
-    <%= link_to product_path(@product), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "ui red button" do %>
-      <i class="trash icon"></i>
-      成果物を削除する
+      <%= link_to product_path(@product), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "ui right floated red button" do %>
+        <i class="trash icon"></i>
+        成果物を削除する
+      <% end %>
     <% end %>
   </div>
 </div>

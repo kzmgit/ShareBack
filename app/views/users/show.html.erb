@@ -1,5 +1,9 @@
 <div class="ui container">
-  <h1>マイページ</h1>
+  <% if @user == current_user %>
+    <h1 class="heading">マイページ</h1>
+  <% else %>
+    <h1 class="heading">ユーザー情報</h1>
+  <% end %>
 
   <div class="ui two column stackable grid">
     <!--左側-->

@@ -21,8 +21,9 @@
   width: 100%;
 }
 
-// headerが見切れたら横スクロールできるように
 header {
+  margin-bottom: 50px;
+  // headerが見切れたら横スクロールできるように
   overflow: scroll;
    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
   -ms-overflow-style: none;
@@ -45,7 +46,26 @@ header::-webkit-scrollbar{
 }
 
 // /tagsのボタン
-
 .tags_btn {
   width: 100%;
+}
+
+// 見出しの調整
+.heading {
+  padding-top: 16px;
+  margin-bottom: 20px;
+}
+
+.submit {
+  background-color: #2185D0;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: #1678c2;
+}
+
+footer {
+  padding: 15px 0;
 }
