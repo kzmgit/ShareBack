@@ -1,0 +1,12 @@
+<% if object.errors.any? %>
+  <div class="ui error message">
+    <div class="header">
+      <%= "#{object.errors.count} 件のエラーが発生しました" %>
+    </div>
+    <ul class="list">
+      <% object.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

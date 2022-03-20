@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  root 'homes#top'
+
+  root 'products#index'
   get '/about' => 'homes#about'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/sign_up' => 'users#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+
+  resources :users, except: [:new]
+  resources :products do
+    resources :feedbacks, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
+  end
+  resources :tags, only: [:index, :show], param: :word
 end

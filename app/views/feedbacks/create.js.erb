@@ -1,0 +1,11 @@
+$(".feedback").html("<%= j(render partial: 'feedbacks/index', locals: {feedbacks: @feedbacks, object: @product_feedback}) %>");
+
+<!--投稿後はフォームを空にする-->
+$(".good_point").val("");
+$(".improvement_point").val("");
+$(".feedback_other").val("");
+
+<!--投稿失敗→投稿成功時にエラーメッセージを消す-->
+$(".feedback_error").empty();
+<!--投稿できたら.feedbacks_emptyのメッセージを消す-->
+$(".feedbacks_empty").empty();

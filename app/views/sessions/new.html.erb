@@ -1,0 +1,32 @@
+<div class="ui container">
+  <h2>ログイン</h2>
+  <div class="ui large form">
+    <div class="ui stacked segment">
+      <%= form_with(url: login_path, scope: :session) do |f| %>
+
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="envelope icon"></i>
+          <%= f.email_field :email, placeholder: "メールアドレス" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password, placeholder: "パスワード" %>
+        </div>
+      </div>
+
+        <%= f.submit "ログイン", class: "ui fluid large teal button" %>
+      <% end %>
+    </div>
+  </div>
+    <div class="ui message">
+      <p>アカウントをお持ちでない方→ <%= link_to "新規登録", sign_up_path %></p>
+    </div>
+
+    <h5>テストユーザー</h5>
+    <p>メールアドレス：test@1</p>
+    <p>パスワード：password</p>
+</div>

@@ -1,0 +1,129 @@
+<div class="ui container">
+  <div class="ui items">
+    <div class="item">
+      <%= link_to user_path(@product.user), class: "ui image" do %>
+        <%= image_tag @product.user.get_image(80,80), class: "img_status" %>
+      <% end %>
+      <div class="middle aligned content">
+        <%= link_to @product.user.name, user_path(@product.user) %>
+        <div class="description">
+          <p>投稿日: <%= l @product.created_at %></p>
+          <p>更新日: <%= l @product.updated_at %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui center aligned grid">
+    <%= image_tag @product.get_image(2000,2000), class: "thirteen wide column img_status" %>
+  </div>
+
+  <div class="ui grid">
+    <div class="ui blue labels">
+      <% @product.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.url_word), class: "ui blue basic label" %>
+      <% end %>
+    </div>
+  </div>
+
+  <!--タブ機能-->
+  <div class="ui two item menu">
+    <a class="active item" data-tab="product_show">成果物詳細</a>
+    <a class="item" data-tab="feedbacks">フィードバック</a>
+  </div>
+  <!--タブ（成果物詳細）-->
+  <div class="ui active tab segment" data-tab="product_show">
+    <h2 class="ui dividing header"><%= @product.title %>
+      <!--自分のだったら編集ボタン出す-->
+      <% if current_user?(@product.user) %>
+        <div class="ui right floated sub header">
+          <p><%= link_to '編集する', edit_product_path(@product) %></p>
+        </div>
+      <% end %>
+      <!--いいねボタン-->
+      <span id="favorite_btn_<%= @product.id %>" class="ui right floated sub header" style="padding-top: 2.1px;">
+        <%= render partial: 'favorites/favorite_btn', locals: { product: @product } %>
+      </span>
+
+      <div class="sub header"><%= link_to @product.url, @product.url, target: "_blank", rel: "noopener noreferrer" %></div>
+    </h2>
+
+    <p><%= safe_join(@product.overview.split("\n"),tag(:br)) %></p>
+
+    <div class="ui dividing large header">
+      <i class="comment outline icon"></i>
+      <div class="content">作成背景</div>
+    </div>
+    <p><%= safe_join(@product.background.split("\n"),tag(:br)) %></p>
+
+    <div class="ui dividing large header">
+      <i class="thumbtack icon"></i>
+      <div class="content">使い方</div>
+    </div>
+    <p><%= safe_join(@product.usage.split("\n"),tag(:br)) %></p>
+
+    <div class="ui dividing large header">
+      <i class="lightbulb outline icon"></i>
+      <div class="content">工夫点</div>
+    </div>
+    <p><%= safe_join(@product.ingenuity.split("\n"),tag(:br)) %></p>
+
+    <div class="ui dividing large header">
+      <i class="pencil alternate icon"></i>
+      <div class="content">機能一覧</div>
+    </div>
+    <p><%= safe_join(@product.features.split("\n"),tag(:br)) %></p>
+
+    <div class="ui dividing large header">
+      <i class="code icon"></i>
+      <div class="content">使用技術</div>
+    </div>
+    <p><%= safe_join(@product.technology.split("\n"),tag(:br)) %></p>
+
+    <% if @product.other? %>
+      <div class="ui dividing large header">
+        <i class="info circle icon"></i>
+        <div class="content">その他</div>
+      </div>
+      <p><%= safe_join(@product.other.split("\n"),tag(:br)) %></p>
+    <% end %>
+  </div>
+  <!--タブ（フィードバック）-->
+  <div class="ui tab segment" data-tab="feedbacks">
+    <% if @feedbacks.empty? %>
+      <span class="feedbacks_empty">この投稿にまだフィードバックはありません。</span>
+    <% end %>
+    <div class="feedback">
+      <%= render partial: 'feedbacks/index', locals: {feedbacks: @feedbacks} %>
+    </div>
+
+    <!--フィードバックフォーム-->
+    <h3>フィードバックを送る</h3>
+    <div class="ui large form error">
+      <%= form_with model: [@product,@product_feedback], local: false do |f| %>
+        <div class="feedback_error">
+          <%= render 'shared/error_messages', object: @product_feedback %>
+        </div>
+        <div class="field">
+          <%= f.label :good_point %>
+          <%= f.text_area :good_point, rows: 7, class: "good_point" %>
+        </div>
+        <div class="field">
+          <%= f.label :improvement_point %>
+          <%= f.text_area :improvement_point, rows: 7, class: "improvement_point" %>
+        </div>
+        <div class="field">
+          <%= f.label :other %>
+          <%= f.text_area :other, rows: 2, class: "feedback_other" %>
+        </div>
+
+        <button class="ui labeled icon blue button">
+          <i class="paper plane icon"></i>
+          <%= f.submit '送信', class: "submit" %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+  <!--↑タブ機能おわり-->
+
+</div>

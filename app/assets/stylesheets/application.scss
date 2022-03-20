@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "semantic-ui";
+
+// 画像幅がレスポンシブになるように設定
+.img_status {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  margin-bottom: 50px;
+  // headerが見切れたら横スクロールできるように
+  overflow: scroll;
+   /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+  -ms-overflow-style: none;
+   /*Firefoxへの対応*/
+  scrollbar-width: none;
+}
+ /*Google Chrome、Safariへの対応*/
+header::-webkit-scrollbar{
+  display: none;
+}
+
+//ハートの色
+.heart-on {
+  color: #FF7696;
+}
+
+// /tags/showでタグ名が大文字になるのを修正
+.ui.divider {
+  text-transform: none;
+}
+
+// /tagsのボタン
+.tags_btn {
+  width: 100%;
+}
+
+// 見出しの調整
+.heading {
+  padding-top: 16px;
+  margin-bottom: 20px;
+}
+
+// フィードバック送信ボタン
+.submit {
+  background-color: #2185D0;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: #1678c2;
+}
+
+footer {
+  padding: 15px 0;
+}

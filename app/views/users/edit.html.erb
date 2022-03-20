@@ -1,0 +1,53 @@
+<div class="ui container">
+  <h2>ユーザー情報編集</h2>
+
+  <div class="ui large form error">
+      <%= form_with model: @user, local: true do |f| %>
+        <%= render 'shared/error_messages', object: @user %>
+
+        <div class="field">
+          <label>画像</label>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+
+        <div class="field">
+          <label>名前</label>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <label>メールアドレス</label>
+          <%= f.email_field :email %>
+        </div>
+
+        <div class="field">
+          <label>自己紹介</label>
+          <%= f.text_area :introduction %>
+        </div>
+
+        <h3>パスワード変更（変更なしの場合は空欄のまま）</h3>
+        <div class="field">
+          <label>パスワード</label>
+          <%= f.password_field :password %>
+        </div>
+
+        <div class="field">
+          <label>パスワード再入力</label>
+          <%= f.password_field :password_confirmation %>
+        </div>
+
+        <div class="ui left icon input">
+          <i class="save icon"></i>
+          <%= f.submit '編集内容を保存', class: "ui green button" %>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="ui hidden divider">
+    <%= link_to user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "ui red button" do %>
+      <i class="trash icon"></i>
+      アカウントを削除する
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="ui container">
+  <h2 class="heading">タグから探す</h2>
+  <div class="ui divider"></div>
+
+  <div class="ui link cards three column stackable grid">
+    <% @tags.each do |tag| %>
+    <div class="column">
+      <%= link_to tag_path(tag.url_word) do %>
+        <div class="ui card" style="width: 100%;">
+          <div class="content" style="text-align: center;">
+            <div class="header"><%= tag.name %></div>
+            <div class="meta">
+              <span>(<%= tag.products.count %>)</span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

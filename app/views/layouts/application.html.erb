@@ -3,14 +3,28 @@
   <head>
     <title>ShareBack</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--↓Semantic UIを動かす用のjsファイル-->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <%= render partial: 'layouts/header' %>
+
+    <div>
+      <% flash.each do |message_type, message| %>
+        <div class="ui <%= message_type %> message">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
+    <footer></footer>
   </body>
 </html>

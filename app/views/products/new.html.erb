@@ -1,0 +1,60 @@
+<div class="ui container">
+  <h2 class="heading">成果物投稿</h2>
+  <div class="ui large form error">
+    <%= form_with model: @product do |f| %>
+      <%= render 'shared/error_messages', object: @product %>
+      <div class="field">
+        <label>画像（aboutページ、topページ、ロゴなど）</label>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="ui yellow tiny message">
+        <div class="header">画像には比率が「3:2」のものを使用してください</div>
+        <ul class="list">
+          <li>「960x640」「1200x800」「2400x1600」などが推奨です。</li>
+          <li>「3:2」のサイズ一覧は<%= link_to "こちら", 'https://blog.phantom4.org/archives/300', target: :_blank, rel: "noopener noreferrer" %></li>
+        </ul>
+      </div>
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+      </div>
+      <div class="field">
+        <%= f.label :tag_names %>
+        <%= f.text_field :tag_names, value: @tag_list, placeholder: "成果物に関連するタグをカンマ区切りで5つまで入力。（例：Ruby,Rails）" %>
+      </div>
+      <div class="field">
+        <%= f.label :overview %>
+        <%= f.text_field :overview %>
+      </div>
+      <div class="field">
+        <%= f.label :background %>
+        <%= f.text_area :background %>
+      </div>
+      <div class="field">
+        <%= f.label :usage %>
+        <%= f.text_area :usage %>
+      </div>
+      <div class="field">
+        <%= f.label :ingenuity %>
+        <%= f.text_area :ingenuity %>
+      </div>
+      <div class="field">
+        <%= f.label :other %>
+        <%= f.text_area :other %>
+      </div>
+      <div class="field">
+        <%= f.label :features %>
+        <%= f.text_area :features %>
+      </div>
+      <div class="field">
+        <%= f.label :technology %>
+        <%= f.text_area :technology %>
+      </div>
+      <%= f.submit '投稿する', class: "ui blue button" %>
+    <% end %>
+  </div>
+</div>
