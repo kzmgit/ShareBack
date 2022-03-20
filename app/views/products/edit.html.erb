@@ -4,8 +4,15 @@
     <%= form_with model: @product do |f| %>
       <%= render 'shared/error_messages', object: @product %>
       <div class="field">
-        <label>画像</label>
+        <label>画像（aboutページ、topページ、ロゴなど）</label>
         <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="ui yellow tiny message">
+        <div class="header">画像には比率が「3:2」のものを使用してください</div>
+        <ul class="list">
+          <li>「960x640」「1200x800」「2400x1600」などが推奨です。</li>
+          <li>「3:2」のサイズ一覧は<%= link_to "こちら", 'https://blog.phantom4.org/archives/300', target: :_blank, rel: "noopener noreferrer" %></li>
+        </ul>
       </div>
       <div class="field">
         <%= f.label :title %>

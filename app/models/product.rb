@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
 
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
   MAX_TAGS_COUNT = 5
 
   with_options presence: true do
