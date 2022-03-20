@@ -18,6 +18,7 @@ class Product < ApplicationRecord
   validates :features
   validates :technology
   end
+  validates :overview, length: { maximum: 50 }
 
   # 画像が存在しない場合にデフォルト画像をActiveStorageに格納する&サイズ調整。
   def get_image(width, height)
