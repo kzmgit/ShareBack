@@ -56,6 +56,10 @@ class Product < ApplicationRecord
     # 古いタグを消す
     old_tags.each do |old|
       self.tags.delete Tag.find_by(name: old)
+      # 使われていないタグは削除する
+      if Tag.find_by(name: old).products.empty?
+        Tag.find_by(name: old).destroy
+      end
     end
     # 新しいタグを保存
     new_tags.each do |new|
