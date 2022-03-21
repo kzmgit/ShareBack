@@ -1,24 +1,55 @@
-# README
+# :placard: ShareBack
+エンジニアのための成果物共有プラットフォームです。  
+:link: **URL** [https://morning-ravine-53810.herokuapp.com/](https://morning-ravine-53810.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## :speech_balloon: なぜこのサービスを作ったのか
+私がプログラミング学習していく中で、以下のような課題を感じていました。
+- **「何かしら成果物を作りたいけど、何を作ろうかアイデアが思い浮かばない」**
+- **「自分と同じレベルぐらいの人はどんな成果物を作っているのだろう」**
 
-Things you may want to cover:
+これは自分だけが感じている問題ではなく、初学者のプログラミング学習あるあるだと思います。  
+また、成果物を持っている人の課題も解決できるように本アプリを制作しました。
 
-* Ruby version
+## :star2: ユーザーが解決したい課題
+- 「なにか作ってみたいけど、アイデアが思い浮かばない」(成果物がない人)
+- 「作ったまではいいけど、誰かに使ってもらいたい」(成果物がある人)
 
-* System dependencies
 
-* Configuration
+## :heavy_check_mark: ShareBackを利用するメリット
+**【成果物がない人】**
+1. 成果物制作のアイデアが得れる
+2. 成果物を制作する
+3. 【成果物がある人】へ↓
 
-* Database creation
+**【成果物がある人】**
+1. 実際に成果物を使ってもらいフィードバックを得れる
+2. フィードバックをもとに改善
+3. プロダクトの成長 ＆ 就活などで自走力のアピールになる
 
-* Database initialization
+## :round_pushpin: 工夫した点
+- 自分が気になる言語や技術の成果物をすぐに見つけられるようにタグ機能を実装しました。
+- ユーザビリティを向上させるために、お気に入り機能とフィードバック機能をAjaxで実装しました。
 
-* How to run the test suite
+## :pencil: 機能一覧
+- ユーザー登録、ログイン機能
+- 投稿機能
+- フィードバック機能
+- お気に入り機能
+- タグ機能
 
-* Services (job queues, cache servers, search engines, etc.)
+## :desktop_computer: 使用技術
+【フロントエンド】  
+・Semantic UI
 
-* Deployment instructions
+【バックエンド】  
+・Ruby 3.1.1  
+・Ruby on Rails 6.1.4.7
 
-* ...
+【データベース】  
+・PostgreSQL
+
+ 【開発環境】  
+・AWS Cloud9
+
+【本番環境】  
+・Heroku
